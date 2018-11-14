@@ -66,11 +66,14 @@
 
 
 /******************main_section01*************************/
-#main_section01{width:100%; /*top:150px;*/background-image:url("http://placehold.it/1280x400"); background-repeat:no-repeat; background-size:cover;}
+#main_section01{width:100%; background-color:#ffc0cb;/*top:150px;background-image:url("http://placehold.it/1280x400"); background-repeat:no-repeat; background-size:cover;*/}
 #main_section01 .main_section01_wrap{max-width:1280px; position:relative; margin: 0 auto;}
 #main_section01 .main_visual{margin:0 auto; width:100%; height:400px; overflow:hidden; position:relative;}
-#main_section01 .main_visual li{position:absolute; top:0; left:0;/*display:inline-block;*//*display:none;*/ width:100%; height: 400px; background-image:url("http://placehold.it/1280x400"); background-repeat:no-repeat; background-size:cover; /*opacity:0;*/}
-
+#main_section01 .main_visual li{position:absolute; top:0; left:0;/*display:inline-block;*//*display:none;*/ width:100%; height: 400px; background-repeat:no-repeat; background-size:cover; /*opacity:0;*/}
+#main_section01 .main_visual .main_slide1{background-image:url("/img/main_slide1.jpg");}
+#main_section01 .main_visual .main_slide2{background-image:url("/img/main_slide2.jpg");}
+#main_section01 .main_visual .main_slide3{background-image:url("/img/main_slide3.jpg");}
+#main_section01 .main_visual .main_slide4{background-image:url("/img/main_slide4.jpg");}
 #main_section01 .main_visual_btn{position:absolute; left:50%; bottom:20px; width:140px; height:10px; margin-left:-70px;}
 #main_section01 .main_visual_btn li{display:inline-block;}
 #main_section01 .main_visual_btn li a{display:inline-block; width:15px; height:15px; margin:0 7px; background-color:#555; border-radius:6px}

@@ -7,37 +7,20 @@
     <title>AROCK</title>
     <!--css-->
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
-    <link rel="stylesheet" href="/css/basic.css?ver3">
-    <link rel="stylesheet" href="/css/main.css?ver3">
-    <link rel="stylesheet" href="/css/sub.css?ver3">
+    <link rel="stylesheet" href="/css/basic.css?ver4">
+    <link rel="stylesheet" href="/css/main.css?ver4">
+    <link rel="stylesheet" href="/css/sub.css?ver4">
     <!--script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>--><!--bxSliderWeb-->
     <!--<script src="jquery/jquery.bxslider.min.js"></script>--><!--bxSliderLocal-->
     <script>
-    $(document).ready(function(){
-      
-    });
-    
+    /* 메인 tab메뉴 */
     $(document).ready(function(){
         /************** search메뉴 *************/
-        $('.top_gnb .search_btn').click(function(){
-            $('.header_wrap02').removeClass('hidden');
-
-            $('.header_wrap02').addClass(' hidden');
-            return false;
-        });
-    
-        /************** tab메뉴 *************/
-        $('.tab_menu a').click(function(){
-            var tab_id = $(this).attr('data-tab');
-
-            $('.tab_menu a').removeClass('on_tab');
-            $('.main_tab ul').removeClass('tab_area');
-
-            $(this).addClass('on_tab');
-            $("#"+tab_id).addClass('tab_area');
+    	$(".top_header .search_toggle").on("click",function(){
+            $(".header_wrap02 .search_wrap").toggle("fast");
             return false;
         });
     });
@@ -125,7 +108,7 @@
                             <li><a href="#">SMART 추천메뉴</a></li>
                         </ul>
                     </li>
-                    <li class="on"><a href="#">이벤트</a>
+                    <li><a href="#">이벤트</a>
                         <ul class="gnb_step2">
                             <li><a href="#">특가상품</a></li>
                             <li><a href="#">이벤트</a></li>
@@ -143,8 +126,3 @@
             </nav>
         </div><!--header_wrap03-->
     </header><!--header-->
-    <script>
-    $(".top_header .search_toggle").on("click",function(){
-        $(".header_wrap02 .search_wrap").toggle("fast");
-     });
-    </script>

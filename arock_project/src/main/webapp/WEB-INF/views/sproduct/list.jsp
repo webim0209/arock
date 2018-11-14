@@ -71,7 +71,7 @@
                             <p>최근 검색어 | <span>한식</span><span>한식</span></p>
                         </div>
                     </div><!--sub_search_area-->
-                    <div class="detail_search_area">
+                    <div class="detail_search_area" style="display:none;">
                        <ul>
                            <li> <label for="">가격대</label>
                             <select name="" id="">
@@ -96,8 +96,21 @@
                             <li></li>
                        </ul>
                     </div><!--detail_search_area-->
-                    <a href="#" class="sub_detail_search">상세검색</a>
+                    <a href="#" class="sub_detail_search">상세검색 보기</a>
                 </div><!--sub_search-->
+                <script>
+                $(".sub_detail_search").click(function(){
+                	if($(".detail_search_area").css("display")=="none"){
+                		$(".detail_search_area").show("fast");
+                		$(this).text("상세검색 닫기");
+                	}else{
+                		$(".detail_search_area").hide();
+                		$(this).text("상세검색 보기");
+                	}
+                	
+                	return false;
+                });
+                </script>
                 <div class="product_list_top">
                    <select>
                         <option value="">정렬기준</option>

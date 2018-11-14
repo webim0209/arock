@@ -203,4 +203,5 @@ simply dummy text of the printing</p></a></li>
             </div>
         </div>
     </section><!--main_section04-->
+    <script type="text/javascript" src="/js/main_java.js"></script>
 <%@include file="include/footer.jsp" %>

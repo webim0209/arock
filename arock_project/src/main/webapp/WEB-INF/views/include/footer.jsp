@@ -17,6 +17,5 @@
             </div>
         </div><!--footer_wrap-->
     </footer><!--footer-->
-    <!--<script type="text/javascript" src="js/main_java.js"></script>-->
 </body>
 </html>

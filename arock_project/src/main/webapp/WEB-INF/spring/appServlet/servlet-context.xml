@@ -25,7 +25,7 @@
 	
 	<!-- 웹소스 경로지정 -->
 	<resources mapping="/css/**" location="/resources/css/" /> 
-	<resources mapping="/images/**" location="/resources/img/" /> 
+	<resources mapping="/img/**" location="/resources/img/" /> 
 	<resources mapping="/js/**" location="/resources/js/" /> 
 	<resources mapping="/resources/**" location="/resources/" /> 
 	

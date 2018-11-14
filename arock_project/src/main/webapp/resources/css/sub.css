@@ -91,7 +91,8 @@
 .sub111 .sub_search .detail_search_area li{display:inline-block; width:30%; margin-top:10px; padding-top:5px;}
 .sub111 .sub_search .detail_search_area label{display:inline-block; width:80px; margin-right:10px; vertical-align:center;}
 .sub111 .sub_search .detail_search_area select{width:auto; padding:0 10px; height:25px;}
-.sub111 .sub_search .sub_detail_search{display:inline-block; width:90px; height:30px; line-height:30px; background:#ddd;float:right; margin-right:20px; border:1px solid #ccc;}
+.sub111 .sub_search .sub_detail_search{display:inline-block; width:auto; height:30px; padding:0 10px; line-height:30px; background:#ddd;float:right; margin-right:20px; border:1px solid #ccc;}
+.sub111 .sub_search .sub_detail_search:hover{background:#ff2151; color:#fff;}
 
 /**product_list_top**/
 .sub111 .product_list_top{text-align:right; margin: 40px 0 15px; }
