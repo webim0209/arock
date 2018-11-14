@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.arock.mapper.productMapper">
+	
+	<insert id="create">
+	insert into product(product_name, product_category, product_price, product_saleprice, product_summary, product_detail) 
+	values (#{productName},#{productCategory}, #{productPrice}, #{productSalePrice}, #{productSummary}, #{productDetail})
+	</insert>
+	
+	<select id="read" resultType="ProductVO">
+		select
+		*
+		from
+		product
+		where product_no = #{productNo} 
+	</select>
+	
+	<update id="update">
+	update product
+	set product_name =#{productName}, product_price=#{productPrice}, product_saleprice=#{productSalePrice}, product_summary=#{productSummary}, product_detail=#{productDetail}
+	where product_no = #{productNo}
+	</update>
+	
+	<delete id="delete">
+	delete from product where product_no = #{productNo}
+	</delete>
+	
+	<select id="listAll" resultType="com.arock.domain.ProductVO">
+	<![CDATA[
+		select product_no, product_name, product_price, product_saleprice, product_summary, product_createday, buy_count, review_count, like_count, total_star, product_detail
+		from product
+		where product_no > 0
+		order by product_no desc, product_createday desc
+	]]>
+	</select>
+	
+	<select id="listPage" resultType="ProductVO">
+	<![CDATA[
+		select product_no, product_name, product_price, product_saleprice, product_summary, product_createday, buy_count, review_count, like_count, total_star, product_detail
+		from product
+		where product_no > 0
+		order by product_no desc, product_createday desc
+		limit #{page},10
+	]]>
+	</select>
+	
+	<select id="listCriteria" resultType="ProductVO">
+	<![CDATA[
+		select product_no, product_name, product_price, product_saleprice, product_summary, product_createday, buy_count, review_count, like_count, total_star, product_detail
+		from product
+		where product_no > 0
+		order by product_no desc, product_createday desc
+		limit #{pageStart},#{perPageNum}
+	]]>
+	</select>
+	
+	<select id="countPaging" resultType="int">
+	<![CDATA[
+		select count(product_no)
+		from product
+		where product_no > 0
+	]]>
+	</select>
+		
+	<!-- if를 이용한 동적 SQL문을 적용하기 위한 sql -->
+	<sql id="search">
+	<if test="searchType != null">
+		<if test="searchType == 'k'.toString()">
+		and product_category='한식'
+		</if>
+		<if test="searchType == 'c'.toString()">
+		and product_category='중식'
+		</if>
+		<if test="searchType == 'j'.toString()">
+		and product_category='일식'
+		</if>
+		<if test="searchType == 'b'.toString()">
+		and product_category='분식'
+		</if>
+		<if test="searchType == 'd'.toString()">
+		and product_category='다이어트식'
+		</if>
+	</if>
+	</sql>
+	
+	<select id="listSearch" resultType="ProductVO">
+	<![CDATA[
+		select *
+		from product
+		where product_no > 0
+		and product_name like CONCAT('%',#{keyword},'%')
+	]]>
+	
+	<include refid="search"></include>
+	
+	<![CDATA[
+		order by product_no desc, product_createday desc, product_updateday desc
+		limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+	
+	
+	
+	<select id="listSearchCount" resultType="int">
+	<![CDATA[
+		select count(product_no)
+		from product
+		where product_no > 0
+		and product_name like CONCAT('%',#{keyword},'%')
+	]]>
+	<include refid="search"></include>
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>
