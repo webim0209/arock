@@ -363,7 +363,7 @@
                  	  return false;
                    });
                    
-                   /* 리뷰 수정 기능 */
+                   /* 리뷰 수정 기능 **/
                    
                </script>
             <div class="product_tab">
