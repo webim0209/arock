@@ -19,4 +19,7 @@ public interface ProductDAO {
 	/*동적 SQL문을 적용하기 위한 메소드*/
 	public List<ProductVO> listSearch(SearchCriteria cri)throws Exception;
 	public int listSearchCount(SearchCriteria cri)throws Exception;
+	
+	/* 댓글 숫자 변경 */
+	public void updateReviewCnt(int productNo, int amount)throws Exception;
 }

@@ -114,6 +114,10 @@
 	<include refid="search"></include>
 	</select>
 	
+	<!-- 댓글숫자 변경 -->
+	<update id="updateReviewCnt">
+		update product set review_count=review_count+#{amount} where product_no = #{productNo}
+	</update>
 	
 	
 	

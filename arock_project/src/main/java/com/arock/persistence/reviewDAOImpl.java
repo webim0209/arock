@@ -51,4 +51,9 @@ public class reviewDAOImpl implements reviewDAO{
 	public int count(int productNo) throws Exception {
 		return session.selectOne(namespace+".count",productNo);
 	}
+	
+	/* 댓글 숫자 변경 */
+	public int getProductNo(int reviewNo)throws Exception{
+		return session.selectOne(namespace+".getProductNo",reviewNo);
+	}
 }

@@ -1,6 +1,8 @@
 package com.arock.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -70,5 +72,16 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
 		return session.selectOne(namespace+".listSearchCount",cri);
+	}
+	
+	/* 댓글 숫자 변경 */
+	@Override
+	public void updateReviewCnt(int productNo, int amount)throws Exception{
+		Map<String, Object> paramMap = new HashMap<String,Object>();
+		
+		paramMap.put("productNo",productNo);
+		paramMap.put("amount", amount);
+		
+		session.update(namespace+".updateReviewCnt", paramMap);
 	}
 }

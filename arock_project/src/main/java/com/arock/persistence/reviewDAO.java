@@ -14,4 +14,7 @@ public interface reviewDAO {
 	/* review */
 	public List<ReviewVO> listPage(int productNo, Criteria cri) throws Exception;
 	public int count(int productNo) throws Exception;
+	
+	/* 댓글 숫자 변경 */
+	public int getProductNo(int reviewNo)throws Exception;
 }
