@@ -11,7 +11,7 @@ public interface ReviewService {
 	public void modifyReview(ReviewVO vo)throws Exception;
 	public void removeReview(int reviewNo)throws Exception;
 	
-	/*review ´ñ±Û Ã³¸®*/
+	/*review*/
 	public List<ReviewVO> listReviewPage(int productNo, Criteria cri) throws Exception;
 	public int count(int productNo) throws Exception;
 }

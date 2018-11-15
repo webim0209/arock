@@ -82,7 +82,7 @@ public class ReviewController {
 	
 	@RequestMapping(value="/{productNo}/{page}", method={RequestMethod.GET})
 	public ResponseEntity<Map<String,Object>> listPage(
-			@PathVariable("productNo") int productNo, @PathVariable("page") int page){
+		@PathVariable("productNo") int productNo, @PathVariable("page") int page){
 		ResponseEntity<Map<String,Object>> entity=null;
 		try {
 			Criteria cri = new Criteria();

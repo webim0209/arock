@@ -17,7 +17,7 @@
 	</insert>
 	
 	<update id="update">
-		update review set review_title=#{reviewTitle}, review_text=#{reviewText}, star_point=#{starPoint}
+		update review set review_title=#{reviewTitle}, review_text=#{reviewText}, star_point=#{starPoint}, reviewer=#{reviewer}
 		where review_no = #{reviewNo}
 	</update>
 	

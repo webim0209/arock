@@ -71,7 +71,7 @@
                <h3>상품관련 최신리뷰</h3>
                <div class="youtube">
                    <h4>Youtube</h4>
-                   <!--<video src="https://youtu.be/1PXUU8ncPB8" controls>이 브라우저는 재생할 수 없습니다.</video>-->
+                   <video src="https://youtu.be/1PXUU8ncPB8" controls>이 브라우저는 재생할 수 없습니다.</video>
                </div><!--youtube-->
                <div class="instagram">
                    <h4>Instagram</h4>
@@ -110,10 +110,9 @@
             </div><!--sub_detail_01-->
             <div class="sub_tab">
                 <ul>
-                    <li class="on"><a href="#">상품리뷰</a></li>
-                    <li><a href="#">Q&amp;A</a></li>
-                    <li><a href="#">업체정보</a></li>
-                    <li><a href="#">쿠폰안내</a></li>
+                    <li class="sub_tab1 on"><a href="#" data-tab="review_area" data-tabNo="1">상품리뷰</a></li>
+                    <li class="sub_tab1"><a href="#" data-tab="qna_area" data-tabNo="1">Q&amp;A</a></li>
+                    <li class="sub_tab1"><a href="#" data-tab="store_area" data-tabNo="1">업체정보</a></li>
                 </ul>
             </div><!--sub_tab-->
             <div class="review_area">
@@ -188,9 +187,9 @@
 						<li class="review_register review_modify" style="border-top:1px solid #ddd; display:none;">
                    		<div class="review_info">
                        		<label for="modifyReviewer">작성자</label>
-                       		<input type="text" id="modifyReviewer">
+                       		<input type="text" class="modifyReviewer">
                        		<label for="modifyStarRev">별점</label>
-                       		<div id="modifyStarRev">
+                       		<div class="modifyStarRev">
                           		<span class="starR on"></span>
                           		<span class="starR"></span>
                           		<span class="starR"></span>
@@ -201,9 +200,9 @@
                    		</div>
                    		<div class="newReviewTextArea">
                       		<label for="reviewModifyTitle">리뷰 제목</label>
-                       		<input id="reviewModifyTitle" type="text">
+                       		<input class="reviewModifyTitle" type="text">
                        		<label for="reviewModifyText">리뷰 내용</label>
-                       		<textarea cols="30" rows="10" id="reviewModifyText"></textarea>
+                       		<textarea cols="30" rows="10" class="reviewModifyText"></textarea>
                    		</div>
                    		<div class="review_text01">
                        		<ul class="btn_area right">
@@ -215,46 +214,20 @@
                		{{/each}}
                    </script>
             </div><!--review_area-->
+            <div class="qna_area store_area" style="display:none;">
+            	<p style="font-weight:600; text-align:center; color:red; font-size:30px; margin:100px;">페이지 준비중입니다</p>
+            </div>
             <script>
             var productNo = ${productVO.productNo}; 
             </script>
-            <script type="text/javascript" src="/js/readPageJS.js"></script>
-            <script>
-           	/* 리뷰 수정 기능 */
-           	$(".review_list_area").on("click",".reviewModifySuccessBtn",function(){
-          	   var reviewNo = $(".review_idx").text();
-          	   var reviewer = $("#modifyReviewer").val();
-          	   var reviewTitle = $("#reviewModifyTitle").val();
-          	   var reviewText = $("#reviewModifyText").val();
-          	   var starPoint = $("#modifyStarRev span.on").length;
-          	   
-          	   alert(starPoint);
-          	   
-          	   $.ajax({
-          		   type:'put',
-          		   url:'/review/'+reviewNo,
-          		   headers:{
-          			   "Content-Type" : "application/json",
-          			   "X-HTTP-Method-Override" : "PUT"},
-          		   data :JSON.stringify({reviewTitle:reviewTitle, reviewText:reviewText, starPoint:starPoint, reviewer:reviewer}),
-          		   dataType:'text',
-          		   success:function(msg){
-          			   console.log("msg : "+msg);
-          			   if(msg =='SUCCESS'){
-          				   alert("수정되었습니다.");
-          				   getPage("/review/"+productNo+"/"+reviewPage);
-          			   }          		   
-          	   		}});
-             });
-            </script>
-            <div class="product_tab">
+            <div class="product_tab sub_tab">
                 <ul>
-                    <li class="on"><a href="#">상품제공공시</a></li>
-                    <li><a href="#">거래 조건에 관한 정보</a></li>
+                    <li class="sub_tab2 on"><a href="#" data-tab="product_tab_area" data-tabNo="2">상품제공공시</a></li>
+                    <li class="sub_tab2"><a href="#" data-tab="product_tab_area" data-tabNo="2">거래 조건에 관한 정보</a></li>
                 </ul>
             </div><!--product_tab-->
             <div class="product_tab_area">
-                
+                <p style="font-weight:600; text-align:center; color:red; font-size:30px; margin:100px;">페이지 준비중입니다</p>
             </div><!--product_tab_area-->
             <ul class="btn_area right">
                 <li><button type="submit" class="modifyBtn">수정하기</button></li>
@@ -263,6 +236,7 @@
             </ul>
         </div><!--sub_area-->
     </section><!--sub-->
+    <script type="text/javascript" src="/js/readPageJS.js"></script>
     <script>
        	$(document).ready(function(){
        		var formObj=$("form[role='form']");

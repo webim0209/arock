@@ -1,3 +1,26 @@
+/** readPage_tab메뉴 - 1.리뷰/Q&A/업체정보 2.상품제공공시/거래조건에관한정보 **/
+$('.sub_tab1 a').click(function(){
+    var tab_class = $(this).attr('data-tab');
+    $('.sub_tab1').removeClass('on');
+    $(this).parent().addClass('on');
+    $('.sub_tab1').each(function(){
+    	$("."+$(this).children().attr('data-tab')).hide();
+    });
+    $("."+tab_class).show("fast");
+    return false;
+});
+
+$('.sub_tab2 a').click(function(){
+    var tab_class = $(this).attr('data-tab');
+    $('.sub_tab2').removeClass('on');
+    $(this).parent().addClass('on');
+    $('.sub_tab2').each(function(){
+    	$("."+$(this).children().attr('data-tab')).hide();
+    });
+    $("."+tab_class).show("fast");
+    return false;
+});
+
 /** 별점 등록 **/
    $("#starRev span").on("click", function(){
       	$(this).parent().children('span').removeClass('on');
@@ -120,12 +143,10 @@
     	      var starPoint = review.find('.modifyStar').text();
     	      var starCount = (starPoint.match(/★/g)).length;
     	      
-    	      alert("starCount : "+starCount);
-    	      
-       	  $(".review_modify #modifyReviewer").val(review.find('.modifyReviewer').text());
-       	  reviewModify.find("#modifyStarRev").children("span").removeClass('on');
+       	  $(".review_modify .modifyReviewer").val(review.find('.modifyReviewer').text());
+       	  reviewModify.find(".modifyStarRev").children("span").removeClass('on');
        	  for (var i=0; i<starCount; i++){
-       		  reviewModify.find("#modifyStarRev").children('span:nth-child('+(i+1)+')').addClass('on');
+       		  reviewModify.find(".modifyStarRev").children('span:nth-child('+(i+1)+')').addClass('on');
        	  }
 		  if(reviewModify.next().length >= 1){
 			  reviewModify.nextAll(".review_modify").hide("fast");
@@ -135,15 +156,61 @@
 		  }
 		  reviewModify.show("fast");
 	   }
-   	  $(".review_modify #reviewModifyTitle").val(review.find('.modifyReviewTitle').text());
-   	  $(".review_modify #reviewModifyText").val(review.find('.reviewTextBody').text());
+   	  $(".review_modify .reviewModifyTitle").val(review.find('.modifyReviewTitle').text());
+   	  $(".review_modify .reviewModifyText").val(review.find('.reviewTextBody').text());
       /*별점 재선택*/
-   	  reviewModify.find("#modifyStarRev span").on("click", function(){
+   	  reviewModify.find(".modifyStarRev span").on("click", function(){
        	$(this).parent().children('span').removeClass('on');
        	$(this).addClass("on").prevAll('span').addClass('on');
        	return false;
       });
-   	  
-   	  alert("modifyStarRev : " + $("#modifyStarRev span.on").length);
+   
+   	  /* 리뷰 수정 기능 */
+   	  $(".reviewModifySuccessBtn").on("click", function(){
+   		  var reviewNo = reviewModify.find(".review_idx").text();
+    	  var reviewer = reviewModify.find(".modifyReviewer").val();
+     	  var reviewTitle = reviewModify.find(".reviewModifyTitle").val();
+     	  var reviewText = reviewModify.find(".reviewModifyText").val();
+     	  var starPoint = reviewModify.find(".modifyStarRev span.on").length;
+     	   
+     	   $.ajax({
+     		   type:'put',
+     		   url:'/review/'+reviewNo,
+     		   headers:{
+     			   "Content-Type" : "application/json",
+     			   "X-HTTP-Method-Override" : "PUT"},
+     		   data :JSON.stringify({reviewTitle:reviewTitle, reviewText:reviewText, starPoint:starPoint, reviewer:reviewer}),
+     		   dataType:'text',
+     		   success:function(msg){
+     			   console.log("msg : "+msg);
+     			   if(msg =='SUCCESS'){
+     				   alert("수정되었습니다.");
+     				   getPage("/review/"+productNo+"/"+reviewPage);
+     			   }          		   
+     	   		}});
+   	  });
  	  return false;
    });
+   
+/* 리뷰 삭제 기능 */
+$(".review_list_area").on("click",".reviewDeleteBtn",function(){
+	var review = $(this).closest(".text_review");
+	alert("hi");
+	var reviewNo = review.attr("data-reviewNo");
+	  
+	$.ajax({
+		 type:'delete',
+		 url:'/review/'+ reviewNo,
+		 headers:{
+			 "Content-Type":"application/json",
+			 "X-HTTP-Method-Override" : "DELETE"},
+		dataType:'text',
+		success:function(msg){
+			console.log("msg: "+msg);
+			if(msg == 'SUCCESS'){
+				alert('삭제되었습니다.');
+				getPage("/review/"+productNo+"/"+reviewPage);
+				}
+			}});
+	 });
+   
