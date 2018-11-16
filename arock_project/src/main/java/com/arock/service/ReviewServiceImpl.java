@@ -5,9 +5,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.arock.domain.Criteria;
 import com.arock.domain.ReviewVO;
+import com.arock.persistence.ProductDAO;
 import com.arock.persistence.reviewDAO;
 
 @Service
@@ -16,9 +18,14 @@ public class ReviewServiceImpl implements ReviewService{
 	@Inject
 	private reviewDAO dao;
 	
+	@Inject
+	private ProductDAO productDAO;
+	
+	@Transactional
 	@Override
 	public void addReview(ReviewVO vo)throws Exception{
 		dao.create(vo);
+		productDAO.updateReviewCnt(vo.getProductNo(), 1);
 	}
 	
 	@Override
@@ -29,9 +36,13 @@ public class ReviewServiceImpl implements ReviewService{
 	public void modifyReview(ReviewVO vo) throws Exception {
 		dao.update(vo);	
 	}
+	
+	@Transactional
 	@Override
 	public void removeReview(int reviewNo) throws Exception {
-		dao.delete(reviewNo);	
+		int productNo = dao.getProductNo(reviewNo);
+		dao.delete(reviewNo);
+		productDAO.updateReviewCnt(productNo, -1);
 	}
 	
 	@Override

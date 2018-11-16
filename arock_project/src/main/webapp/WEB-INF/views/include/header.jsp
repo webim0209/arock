@@ -1,4 +1,5 @@
 <%@ page session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -7,9 +8,9 @@
     <title>AROCK</title>
     <!--css-->
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
-    <link rel="stylesheet" href="/css/basic.css?ver2">
-    <link rel="stylesheet" href="/css/main.css?ver2">
-    <link rel="stylesheet" href="/css/sub.css?ver2">
+    <link rel="stylesheet" href="/css/basic.css?ver1">
+    <link rel="stylesheet" href="/css/main.css?ver1">
+    <link rel="stylesheet" href="/css/sub.css?ver1">
     <!--script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
@@ -35,6 +36,7 @@
                     <li><a href="#">회원가입</a></li>
                     <li><a href="#">로그인</a></li>
                     <li><a href="#">로그아웃</a></li>
+                    <li><a href="/sproduct/register">상품등록</a></li>
                     <li><a href="#" class="search_toggle">검색</a></li>
                     <li class="on"><a href="sub140.html">마이페이지</a></li>
                 </ul><!--top_gnb-->
@@ -78,31 +80,36 @@
             <nav id="main_gnb">
                 <h2 class="hidden">메인메뉴</h2>
                 <ul class="gnb_step1">
-                    <li><a href="/sproduct/list?page=1&perPageNum=10&searchType=k&keyword=" class="k">한식</a>
+                	<c:if test="${cri.searchType eq 'k'}"><li class='on'></c:if>
+                    <c:if test="${cri.searchType != 'k'}"><li></c:if><a href="/sproduct/list?page=1&perPageNum=10&searchType=k&keyword=" class="k">한식</a>
                         <ul class="gnb_step2">
                             <li><a href="/sproduct/list?page=1&perPageNum=10&searchType=k&keyword=">한식 전체</a></li>
                             <li><a href="sub120.html">SMART 추천메뉴</a></li>
                         </ul>
                     </li>
-                    <li><a href="/sproduct/list?page=1&perPageNum=10&searchType=c&keyword=" class="c">중식</a>
+                    <c:if test="${cri.searchType eq 'c'}"><li class='on'></c:if>
+                    <c:if test="${cri.searchType != 'c'}"><li></c:if><a href="/sproduct/list?page=1&perPageNum=10&searchType=c&keyword=" class="c">중식</a>
                         <ul class="gnb_step2">
                             <li><a href="/sproduct/list?page=1&perPageNum=10&searchType=c&keyword=">중식 전체</a></li>
                             <li><a href="#">SMART 추천메뉴</a></li>
                         </ul>
                     </li>
-                    <li><a href="/sproduct/list?page=1&perPageNum=10&searchType=j&keyword=" class="j">일식</a>
+                    <c:if test="${cri.searchType eq 'j'}"><li class='on'></c:if>
+                    <c:if test="${cri.searchType != 'j'}"><li></c:if><a href="/sproduct/list?page=1&perPageNum=10&searchType=j&keyword=" class="j">일식</a>
                         <ul class="gnb_step2">
                             <li><a href="/sproduct/list?page=1&perPageNum=10&searchType=j&keyword=">일식 전체</a></li>
                             <li><a href="#">SMART 추천메뉴</a></li>
                         </ul>
                     </li>
-                    <li><a href="/sproduct/list?page=1&perPageNum=10&searchType=b&keyword=" class="b">분식</a>
+                    <c:if test="${cri.searchType eq 'b'}"><li class='on'></c:if>
+                    <c:if test="${cri.searchType != 'b'}"><li></c:if><a href="/sproduct/list?page=1&perPageNum=10&searchType=b&keyword=" class="b">분식</a>
                         <ul class="gnb_step2">
                             <li><a href="/sproduct/list?page=1&perPageNum=10&searchType=b&keyword=">분식 전체</a></li>
                             <li><a href="#">SMART 추천메뉴</a></li>
                         </ul>
                     </li>
-                    <li><a href="/sproduct/list?page=1&perPageNum=10&searchType=d&keyword=" class="d">다이어트식</a>
+                    <c:if test="${cri.searchType eq 'd'}"><li class='on'></c:if>
+                    <c:if test="${cri.searchType != 'd'}"><li></c:if><a href="/sproduct/list?page=1&perPageNum=10&searchType=d&keyword=" class="d">다이어트식</a>
                         <ul class="gnb_step2">
                             <li><a href="/sproduct/list?page=1&perPageNum=10&searchType=d&keyword=">다이어트식 전체</a></li>
                             <li><a href="#">SMART 추천메뉴</a></li>

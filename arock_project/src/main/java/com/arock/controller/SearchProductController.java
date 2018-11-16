@@ -81,11 +81,13 @@ public class SearchProductController {
 	}
 	
 	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public String registPOST(ProductVO vo, RedirectAttributes rttr)throws Exception{
+	public String registPOST(@ModelAttribute("cri") SearchCriteria cri, ProductVO vo, RedirectAttributes rttr)throws Exception{
 		logger.info("regist post...........");
 		logger.info(vo.toString());
 		
 		service.regist(vo);
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		rttr.addFlashAttribute("msg","SUCCESS");
 		return "redirect:/sproduct/list";
 	}

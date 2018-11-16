@@ -6,6 +6,9 @@
 	<section id="sub" class="sub113">
         <div class="sub_area">
         	<form role="form" method="post">	
+        		<input type="hidden" name="searchType" value="${cri.searchType}">
+        		<input type="hidden" name="keyword" value="${cri.keyword}">	
+        		<input type="hidden" name="productNo" value="${productVO.productNo}">	
 	           <div class="sub_form_list">
 	               <p>* 필수입력사항입니다.</p>
 		               <ul>

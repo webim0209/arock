@@ -7,36 +7,19 @@
     <title>AROCK</title>
     <!--css-->
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
-    <link rel="stylesheet" href="/css/basic.css?ver2">
-    <link rel="stylesheet" href="/css/main.css?ver2">
-    <link rel="stylesheet" href="/css/sub.css?ver2">
+    <link rel="stylesheet" href="/css/basic.css?ver1">
+    <link rel="stylesheet" href="/css/main.css?ver1">
+    <link rel="stylesheet" href="/css/sub.css?ver1">
     <!--script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>--><!--bxSliderWeb-->
     <!--<script src="jquery/jquery.bxslider.min.js"></script>--><!--bxSliderLocal-->
     <script>
-    $(document).ready(function(){
-      
-    });
-    
+    /* 메인 tab메뉴 */
     $(document).ready(function(){
         /************** search메뉴 *************/
-        $('.top_gnb .search_btn').click(function(){
-            $('.header_wrap02').removeClass('hidden');
-
-            $('.header_wrap02').addClass(' hidden');
-            return false;
-        });
-    
-        /************** tab메뉴 *************/
-        $('.tab_menu a').click(function(){
-            var tab_id = $(this).attr('data-tab');
-
-            $('.tab_menu a').removeClass('on_tab');
-            $('.main_tab ul').removeClass('tab_area');
-
-            $(this).addClass('on_tab');
-            $("#"+tab_id).addClass('tab_area');
+    	$(".top_header .search_toggle").on("click",function(){
+            $(".header_wrap02 .search_wrap").toggle("fast");
             return false;
         });
     });
@@ -46,12 +29,12 @@
     <header id="header">
         <div class="header_wrap01">
             <div class="top_header">
-                <a href="index.html" class="logo"><h1><img src="http://placehold.it/200x100" alt="logo"></h1></a>
+                <a href="/" class="logo"><h1><img src="/resources/img/arockLogo.png" alt="logo"></h1></a>
                 <ul class="top_gnb">
                     <li><a href="#">회원가입</a></li>
                     <li><a href="#">로그인</a></li>
                     <li><a href="#">로그아웃</a></li>
-                    <li><a href="#">검색</a></li>
+                    <li><a href="#" class="search_toggle">검색</a></li>
                     <li class="on"><a href="sub140.html">마이페이지</a></li>
                 </ul><!--top_gnb-->
             </div><!--top_header-->
@@ -90,52 +73,11 @@
                 <a href="#"></a>
             </div><!--search_wrap-->
         </div><!--header_wrap02-->
-        <div class="header_wrap03">
+        <div class="header_wrap03" style="background-color:#efefef;">
             <nav id="main_gnb">
                 <h2 class="hidden">메인메뉴</h2>
                 <ul class="gnb_step1">
-                    <li class="on"><a href="register">상품</a>
-                        <ul class="gnb_step2">
-                            <li><a href="register">상품등록</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">중식</a>
-                        <ul class="gnb_step2">
-                            <li><a href="#">중식 전체</a></li>
-                            <li><a href="#">SMART 추천메뉴</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">일식</a>
-                        <ul class="gnb_step2">
-                            <li><a href="#">일식 전체</a></li>
-                            <li><a href="#">SMART 추천메뉴</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">분식</a>
-                        <ul class="gnb_step2">
-                            <li><a href="#">분식 전체</a></li>
-                            <li><a href="#">SMART 추천메뉴</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">다이어트식</a>
-                        <ul class="gnb_step2">
-                            <li><a href="#">다이어트식 전체</a></li>
-                            <li><a href="#">SMART 추천메뉴</a></li>
-                        </ul>
-                    </li>
-                    <li class="on"><a href="#">이벤트</a>
-                        <ul class="gnb_step2">
-                            <li><a href="#">특가상품</a></li>
-                            <li><a href="#">이벤트</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">공지사항</a>
-                        <ul class="gnb_step2 hidden">
-                            <li><a href="#">공지사항</a></li>
-                            <li><a href="#">사이트 불편사항</a></li>
-                            <li><a href="#">위험업체 신고</a></li>
-                            <li><a href="#">사이트 이용 가이드</a></li>
-                        </ul>
+                    <li class="on"><a href="register">상품등록</a>
                     </li>
                 </ul>
             </nav>

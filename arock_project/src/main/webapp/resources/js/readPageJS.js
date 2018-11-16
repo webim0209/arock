@@ -195,7 +195,6 @@ $('.sub_tab2 a').click(function(){
 /* 리뷰 삭제 기능 */
 $(".review_list_area").on("click",".reviewDeleteBtn",function(){
 	var review = $(this).closest(".text_review");
-	alert("hi");
 	var reviewNo = review.attr("data-reviewNo");
 	  
 	$.ajax({

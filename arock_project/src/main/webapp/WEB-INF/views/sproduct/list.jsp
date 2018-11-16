@@ -5,6 +5,7 @@
 
 <%@ include file="../include/header.jsp"%>
 	    <section id="sub" class="sub111">
+	    <c:if test="${cri.searchType == ''}"><img src="/resources/img/subimg/sub_visual101.jpg" alt="" class="sub_visualImg"></c:if>
         <c:if test="${cri.searchType eq 'k'}"><img src="/resources/img/subimg/sub_visual101.jpg" alt="" class="sub_visualImg"></c:if>
 		<c:if test="${cri.searchType eq 'c'}"><img src="http://placehold.it/1980x300" alt="" class="sub_visualImg"></c:if>
 		<c:if test="${cri.searchType eq 'j'}"><img src="http://placehold.it/1980x300" alt="" class="sub_visualImg"></c:if>
@@ -13,7 +14,7 @@
         <div class="sub_area sub_space">
             <ul class="sub_menu">
                 <li class="on"><a href="/sproduct/list${pageMaker.makeQuery(1)}&searchType=k&keyword=">
-        					<c:if test="${cri.searchType == null}"></c:if>
+        					<c:if test="${cri.searchType == ''}"></c:if>
 							<c:if test="${cri.searchType eq 'k'}">한식</c:if>
 							<c:if test="${cri.searchType eq 'c'}">중식</c:if>
 							<c:if test="${cri.searchType eq 'j'}">일식</c:if>
@@ -32,7 +33,7 @@
                     <ul>
                         <li><a href="#">Home ></a></li>
                         <li>
-	                        <c:if test="${cri.searchType == null}"><a href="#">전체메뉴 ></a></c:if>
+	                        <c:if test="${cri.searchType == ''}"><a href="#">전체메뉴 ></a></c:if>
 							<c:if test="${cri.searchType eq 'k'}"><a href="#">한식 ></a></c:if>
 							<c:if test="${cri.searchType eq 'c'}"><a href="#">중식 ></a></c:if>
 							<c:if test="${cri.searchType eq 'j'}"><a href="#">일식 ></a></c:if>
@@ -40,7 +41,7 @@
 							<c:if test="${cri.searchType eq 'd'}"><a href="#">다이어트식 ></a></c:if>
                         </li>
                         <li class="on">
-	                        <c:if test="${cri.searchType == null}"></c:if>
+	                        <c:if test="${cri.searchType == ''}"><a href="#">전체</a></c:if>
 							<c:if test="${cri.searchType eq 'k'}"><a href="/sproduct/list${pageMaker.makeQuery(1)}&searchType=k&keyword=">한식 전체</a></c:if>
 							<c:if test="${cri.searchType eq 'c'}"><a href="#">중식 전체</a></c:if>
 							<c:if test="${cri.searchType eq 'j'}"><a href="#">일식 전체</a></c:if>
@@ -104,7 +105,7 @@
                 		$(".detail_search_area").show("fast");
                 		$(this).text("상세검색 닫기");
                 	}else{
-                		$(".detail_search_area").hide();
+                		$(".detail_search_area").hide("fast");
                 		$(this).text("상세검색 보기");
                 	}
                 	
