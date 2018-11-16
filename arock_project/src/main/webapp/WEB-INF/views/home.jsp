@@ -73,8 +73,8 @@ simply dummy text of the printing</p>
 simply dummy text of the printing</p>
             </a></li>
         </ul>
-        <button type="button" class="main_menu_prev">이전</button>
-        <button type="button" class="main_menu_next">다음</button>
+        <button type="button" class="main_menu_prev" onclick="plusSlides(-2)">이전</button>
+        <button type="button" class="main_menu_next" onclick="plusSlides(2)">다음</button>
     </section><!--main_section02-->
     <section id="main_section03">
             <div class="tab_menu">

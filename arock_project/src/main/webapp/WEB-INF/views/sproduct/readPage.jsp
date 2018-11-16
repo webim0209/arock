@@ -59,7 +59,17 @@
                         </li>
                     </ul>
                     <input type="textarea" placeholder="상품옵션이 표시됩니다.">
-                    <p class="total_price">총 상품금액 <span> ${productVO.productPrice}-${productVO.productSalePrice}</span></p>
+                    <p class="total_price">총 상품금액 <span></span></p>
+                    <script>
+                    /* 가격 계산 임시로 문자로 처리 */
+                    var productPrice = "${productVO.productPrice}";
+                    var productSalePrice = "${productVO.productSalePrice}";
+                    var priceResult = productPrice+productSalePrice;
+                    alert(priceResult);
+                    $(document).ready(function(){
+                    	$(".total_price span").html(priceResult);
+                    });
+                    </script>
                     <div>
                         <a href="#">찜하기</a>
                         <a href="#">장바구니</a>

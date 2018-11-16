@@ -94,3 +94,43 @@ $('.tab_menu a').click(function(){
     $("#"+tab_id).addClass('tab_area');
     return false;
 });
+
+/************** main_slide메뉴 *************/
+$(document).ready(function(){
+	var slideIndex = 1;
+	showSlides(slideIndex);
+	
+	function plusSlides(n) {
+	  showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+	  showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+	  var i;
+	  var slides = document.getElementById("main_visual2").childNodes;
+	 // var dots = document.getElementsByClassName("dot");
+	  if (n > slides.length) {slideIndex = 1}    
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+		  if(i%2==1){
+	      slides[i].style.display = "none";
+		  }
+	  }
+	  for (i = 0; i < dots.length; i++) {
+	      //dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  console.log(slideIndex+1);
+	  if((slideIndex+1)%2==0){
+		  slides[slideIndex].style.display = "inline-block";
+		  slides[slideIndex+2].style.display = "inline-block";
+		  slides[slideIndex+4].style.display = "inline-block";
+		  slides[slideIndex+6].style.display = "inline-block";
+	  }
+	  
+	  //slides[slideIndex-1].style.display = "block";  
+	  //dots[slideIndex-1].className += " active";
+	}
+});
