@@ -8,9 +8,9 @@
     <title>AROCK</title>
     <!--css-->
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
-    <link rel="stylesheet" href="/css/basic.css?ver1">
-    <link rel="stylesheet" href="/css/main.css?ver1">
-    <link rel="stylesheet" href="/css/sub.css?ver1">
+    <link rel="stylesheet" href="/css/basic.css?ver2">
+    <link rel="stylesheet" href="/css/main.css?ver2">
+    <link rel="stylesheet" href="/css/sub.css?ver2">
     <!--script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
@@ -33,9 +33,9 @@
             <div class="top_header">
                 <a href="/" class="logo"><h1><img src="/resources/img/arockLogo.png" alt="logo"></h1></a>
                 <ul class="top_gnb">
-                    <li><a href="#">회원가입</a></li>
+                    <li><a href="/member/join01">회원가입</a></li>
                     <li><a href="#">로그인</a></li>
-                    <li><a href="#">로그아웃</a></li>
+                    <!--<li><a href="#">로그아웃</a></li>-->
                     <li><a href="/sproduct/register">상품등록</a></li>
                     <li><a href="#" class="search_toggle">검색</a></li>
                     <li class="on"><a href="sub140.html">마이페이지</a></li>
